@@ -28,10 +28,10 @@ const Header = () => {
     }, []);
 
     const headerClass = isScrolled
-        ? 'shadow-md bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-sm'
+        ? 'shadow-md shadow-green-500/10 bg-black/60 backdrop-blur-md border-b border-green-500/20'
         : 'bg-transparent';
-        
-    const navLinkClass = "text-slate-600 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 transition-colors font-medium";
+
+    const navLinkClass = "text-gray-400 hover:text-green-500 transition-all duration-300 font-medium hover:text-glow-green";
 
     return (
         <header className={`sticky top-0 z-50 transition-all duration-300 ${headerClass}`}>
@@ -61,17 +61,17 @@ const Header = () => {
                     <div className="md:hidden ml-4">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:text-green-500 dark:hover:text-green-400"
+                            className="p-2 rounded-full text-gray-400 hover:text-green-500 transition-colors duration-300"
                             aria-label="Toggle menu"
                         >
-                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isMenuOpen ? <X size={24} className="glow-green" /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
             </div>
 
             <div className={`transition-all duration-300 ease-in-out overflow-hidden md:hidden ${isMenuOpen ? 'max-h-screen' : 'max-h-0'}`}>
-                <div className="bg-slate-100/95 dark:bg-slate-800/95">
+                <div className="bg-black/90 backdrop-blur-md border-b border-green-500/20">
                     <nav className="flex flex-col items-center space-y-4 py-4">
                         <a href="#about" onClick={() => setIsMenuOpen(false)} className={navLinkClass}>Über Mich</a>
                         <a href="#services" onClick={() => setIsMenuOpen(false)} className={navLinkClass}>Leistungen</a>
