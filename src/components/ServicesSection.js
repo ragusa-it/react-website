@@ -17,7 +17,7 @@ const ServicesSection = memo(() => (
                 const Icon = service.icon;
                 return (
                     <SectionCard key={service.title} className="max-w-5xl !p-8 flex flex-col items-center text-center animate-scale-in" style={{animationDelay: `${index * 0.1}s`}}>
-                        <Icon size={40} className="text-green-500 mb-4 glow-green animate-float" style={{animationDelay: `${index * 0.2}s`}} />
+                        <Icon size={40} className="text-green-500 mb-4 icon-glow-green animate-float" style={{animationDelay: `${index * 0.2}s`}} />
                         <h3 className="text-2xl font-bold text-white mb-3 text-glow-green">{service.title}</h3>
                         <p className="text-gray-300">{service.description}</p>
                     </SectionCard>
