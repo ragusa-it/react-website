@@ -2,11 +2,9 @@
 import React, { memo, useState, useRef, useEffect } from "react";
 import { Section, SectionCard } from './Reusable';
 import studio31Img from "../images/Studio31.webp";
-import auraImg from "../images/AURA.webp";
 
 const projectsData = [
-    { title: "Digitale Präsenz für ein Kreativstudio", description: "Entwicklung der Website für ein Kreativstudio, um die Kernbereiche Sound, Visuals, Web3 und Marketing überzeugend darzustellen.", imgSrc: studio31Img, tags: ["React", "Webentwicklung"], link: "https://studio31.xyz/" },
-    { title: "AURA - Anwesenheits- Und Rettungs- Assistent", description: "Entwicklung eines innovativen Systems zur Anwesenheitsüberwachung und Notfallreaktion.", imgSrc: auraImg, tags: ["React", "API", "Notfallmanagement"], link: "https://aurabrandschutz.app/" } 
+    { title: "Digitale Präsenz für ein Kreativstudio", description: "Entwicklung der Website für ein Kreativstudio, um die Kernbereiche Sound, Visuals, Web3 und Marketing überzeugend darzustellen.", imgSrc: studio31Img, tags: ["React", "Webentwicklung"], link: "https://studio31.xyz/" }
 ];
 
 // Optimized LazyImage component with intersection observer
@@ -54,7 +52,7 @@ const LazyImage = memo(({ src, alt, className, ...props }) => {
 const PortfolioSection = memo(() => (
     <Section id="portfolio">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 text-glow-green animate-slide-up">Meine Arbeiten</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
             {projectsData.map((p, index) => (
                 <SectionCard key={p.title} className="flex flex-col animate-scale-in" style={{animationDelay: `${index * 0.15}s`}}>
                     <div className="overflow-hidden rounded-t-lg border-b border-green-500/20">

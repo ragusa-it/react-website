@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ThemeToggleButton from './ThemeToggleButton';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -56,17 +55,14 @@ const Header = () => {
                     <a href="#contact" className={navLinkClass}>Kontakt</a>
                 </nav>
 
-                <div className="flex items-center">
-                    <ThemeToggleButton />
-                    <div className="md:hidden ml-4">
-                        <button
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-full text-gray-400 hover:text-green-500 transition-colors duration-300"
-                            aria-label="Toggle menu"
-                        >
-                            {isMenuOpen ? <X size={24} className="glow-green" /> : <Menu size={24} />}
-                        </button>
-                    </div>
+                <div className="md:hidden">
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="p-2 rounded-full text-gray-400 hover:text-green-500 transition-colors duration-300"
+                        aria-label="Toggle menu"
+                    >
+                        {isMenuOpen ? <X size={24} className="icon-glow-green" /> : <Menu size={24} />}
+                    </button>
                 </div>
             </div>
 
