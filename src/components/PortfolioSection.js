@@ -2,11 +2,9 @@
 import React, { memo, useState, useRef, useEffect } from "react";
 import { Section, SectionCard } from './Reusable';
 import studio31Img from "../images/Studio31.webp";
-import auraImg from "../images/AURA.webp";
 
 const projectsData = [
-    { title: "Digitale Präsenz für ein Kreativstudio", description: "Entwicklung der Website für ein Kreativstudio, um die Kernbereiche Sound, Visuals, Web3 und Marketing überzeugend darzustellen.", imgSrc: studio31Img, tags: ["React", "Webentwicklung"], link: "https://studio31.xyz/" },
-    { title: "AURA - Anwesenheits- Und Rettungs- Assistent", description: "Entwicklung eines innovativen Systems zur Anwesenheitsüberwachung und Notfallreaktion.", imgSrc: auraImg, tags: ["React", "API", "Notfallmanagement"], link: "https://aurabrandschutz.app/" } 
+    { title: "Digitale Präsenz für ein Kreativstudio", description: "Entwicklung der Website für ein Kreativstudio, um die Kernbereiche Sound, Visuals, Web3 und Marketing überzeugend darzustellen.", imgSrc: studio31Img, tags: ["React", "Webentwicklung"], link: "https://studio31.xyz/" }
 ];
 
 // Optimized LazyImage component with intersection observer
@@ -53,24 +51,24 @@ const LazyImage = memo(({ src, alt, className, ...props }) => {
 
 const PortfolioSection = memo(() => (
     <Section id="portfolio">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-12">Meine Arbeiten</h2>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-            {projectsData.map(p => (
-                <SectionCard key={p.title} className="flex flex-col hover:shadow-green-500/20 hover:-translate-y-2 transition-all duration-300">
-                    <div className="overflow-hidden rounded-t-lg">
-                        <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Link zu ${p.title}`} className="cursor-none">
-                            <LazyImage 
-                                src={p.imgSrc} 
-                                alt={p.title} 
-                                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-none"
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 text-glow-green animate-slide-up">Meine Arbeiten</h2>
+        <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
+            {projectsData.map((p, index) => (
+                <SectionCard key={p.title} className="flex flex-col animate-scale-in" style={{animationDelay: `${index * 0.15}s`}}>
+                    <div className="overflow-hidden rounded-t-lg border-b border-green-500/20 bg-black flex items-center justify-center">
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Link zu ${p.title}`} className="cursor-none block w-full">
+                            <LazyImage
+                                src={p.imgSrc}
+                                alt={p.title}
+                                className="w-full h-64 md:h-80 object-contain hover:scale-110 transition-transform duration-500 cursor-none"
                             />
                         </a>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{p.title}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow">{p.description}</p>
+                        <h3 className="text-xl font-bold text-white mb-2 text-glow-green">{p.title}</h3>
+                        <p className="text-gray-300 text-sm mb-4 flex-grow">{p.description}</p>
                         <div className="flex flex-wrap gap-2 mt-auto">
-                            {p.tags.map(tag => <span key={tag} className="bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-xs font-mono px-2 py-1 rounded">{tag}</span>)}
+                            {p.tags.map(tag => <span key={tag} className="bg-green-900/30 border border-green-500/30 text-green-400 text-xs font-mono px-2 py-1 rounded glow-green">{tag}</span>)}
                         </div>
                     </div>
                 </SectionCard>

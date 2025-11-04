@@ -6,9 +6,67 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Dark monochrome base styles */
+body {
+  background-color: #000000;
+  color: #e0e0e0;
+}
+
 /* Only add transitions to elements that actually need them for better performance */
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Glow effect utility classes */
+.glow-green {
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.6),
+              0 0 20px rgba(74, 222, 128, 0.4),
+              0 0 30px rgba(74, 222, 128, 0.2);
+}
+
+.glow-green-intense {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.8),
+              0 0 30px rgba(74, 222, 128, 0.6),
+              0 0 45px rgba(74, 222, 128, 0.4);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.8),
+               0 0 20px rgba(74, 222, 128, 0.5),
+               0 0 30px rgba(74, 222, 128, 0.3);
+}
+
+.text-glow-green-intense {
+  text-shadow: 0 0 15px rgba(74, 222, 128, 1),
+               0 0 30px rgba(74, 222, 128, 0.8),
+               0 0 45px rgba(74, 222, 128, 0.5);
+}
+
+/* Icon glow effect using drop-shadow for SVG elements */
+.icon-glow-green {
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.6))
+          drop-shadow(0 0 16px rgba(74, 222, 128, 0.4))
+          drop-shadow(0 0 24px rgba(74, 222, 128, 0.2));
+}
+
+.icon-glow-green-intense {
+  filter: drop-shadow(0 0 12px rgba(74, 222, 128, 0.8))
+          drop-shadow(0 0 24px rgba(74, 222, 128, 0.6))
+          drop-shadow(0 0 36px rgba(74, 222, 128, 0.4));
+}
+
+/* Blur backdrop effect */
+.blur-card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.blur-card-hover {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  transition: all 0.3s ease;
 }
 
 /* Improve performance by only hiding cursor when motion is preferred */

@@ -18,8 +18,8 @@ const ContactSection = React.lazy(() => import('./components/ContactSection'));
 
 // Fallback component for Suspense
 const LoadingFallback = () => (
-  <div className="flex justify-center items-center h-screen bg-white dark:bg-black">
-    <LoaderCircle className="animate-spin text-green-500" size={48} />
+  <div className="flex justify-center items-center h-screen bg-black">
+    <LoaderCircle className="animate-spin text-green-500 glow-green" size={48} />
   </div>
 );
 
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="text-slate-700 dark:text-slate-300 font-sans leading-relaxed tracking-wide bg-white dark:bg-black">
+      <div className="text-gray-300 font-sans leading-relaxed tracking-wide bg-black min-h-screen">
         <FancyCursor />
         <Suspense fallback={<LoadingFallback />}>
           <NetworkBackground />

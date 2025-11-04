@@ -14,10 +14,10 @@ Section.displayName = 'Section';
 
 /**
  * A reusable card component with consistent styling for sections.
- * Updated to match the ImpressumModal styles.
+ * Updated to match the dark monochrome theme with green glow.
  */
 export const SectionCard = memo(({ children, className = '' }) => (
-    <div className={`bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-green-700 rounded-lg shadow-2xl shadow-slate-300/20 dark:shadow-green-900/10 p-8 mx-auto theme-transition ${className}`}>
+    <div className={`blur-card rounded-lg p-8 mx-auto transition-all duration-300 hover:blur-card-hover hover:glow-green hover:-translate-y-1 ${className}`}>
         {children}
     </div>
 ));

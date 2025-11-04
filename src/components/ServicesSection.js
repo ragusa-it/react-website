@@ -11,15 +11,15 @@ const servicesData = [
 
 const ServicesSection = memo(() => (
     <Section id="services">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-12">Meine Leistungen</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 text-glow-green animate-slide-up">Meine Leistungen</h2>
         <div className="grid md:grid-cols-3 gap-8">
-            {servicesData.map((service) => {
+            {servicesData.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                    <SectionCard key={service.title} className="max-w-5xl !p-8 flex flex-col items-center text-center hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300">
-                        <Icon size={40} className="text-green-500 dark:text-green-400 mb-4" />
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{service.title}</h3>
-                        <p className="text-slate-600 dark:text-slate-400">{service.description}</p>
+                    <SectionCard key={service.title} className="max-w-5xl !p-8 flex flex-col items-center text-center animate-scale-in" style={{animationDelay: `${index * 0.1}s`}}>
+                        <Icon size={40} className="text-green-500 mb-4 icon-glow-green animate-float" style={{animationDelay: `${index * 0.2}s`}} />
+                        <h3 className="text-2xl font-bold text-white mb-3 text-glow-green">{service.title}</h3>
+                        <p className="text-gray-300">{service.description}</p>
                     </SectionCard>
                 );
             })}

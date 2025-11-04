@@ -73,8 +73,8 @@ const NetworkBackground = memo(() => {
 
         // --- COLOR THEME ---
         const colors = {
-            light: { background: 'hsl(0 0% 100%)', particle: 'hsl(0, 100%, 65%)', line: '248, 113, 113' },
-            dark: { background: 'hsl(0 0% 0%)', particle: 'hsl(0, 100%, 65%)', line: '248, 113, 113' }
+            light: { background: 'hsl(0 0% 0%)', particle: 'hsl(142, 71%, 59%)', line: '74, 222, 128' },
+            dark: { background: 'hsl(0 0% 0%)', particle: 'hsl(142, 71%, 59%)', line: '74, 222, 128' }
         };
 
         const currentColors = colors[theme] || colors.dark;
