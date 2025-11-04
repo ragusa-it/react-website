@@ -56,11 +56,11 @@ const PortfolioSection = memo(() => (
             {projectsData.map((p, index) => (
                 <SectionCard key={p.title} className="flex flex-col animate-scale-in" style={{animationDelay: `${index * 0.15}s`}}>
                     <div className="overflow-hidden rounded-t-lg border-b border-green-500/20">
-                        <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Link zu ${p.title}`} className="cursor-none">
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Link zu ${p.title}`} className="cursor-none block">
                             <LazyImage
                                 src={p.imgSrc}
                                 alt={p.title}
-                                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-500 cursor-none"
+                                className="w-full h-64 md:h-80 object-cover hover:scale-110 transition-transform duration-500 cursor-none"
                             />
                         </a>
                     </div>

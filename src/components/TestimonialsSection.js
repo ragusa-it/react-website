@@ -9,9 +9,9 @@ const testimonialsData = [
 const TestimonialsSection = memo(() => (
     <Section id="testimonials">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 text-glow-green animate-slide-up">Was meine Kunden sagen</h2>
-        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-2xl mx-auto flex justify-center">
             {testimonialsData.map((t, index) => (
-                <SectionCard key={t.name} className="max-w-3xl !p-6 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+                <SectionCard key={t.name} className="w-full !p-6 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
                     <p className="text-gray-300 italic text-lg">"{t.quote}"</p>
                     <p className="text-right mt-4 font-bold text-green-500 text-glow-green">- {t.name}, <span className="text-gray-400 font-normal">{t.company}</span></p>
                 </SectionCard>
