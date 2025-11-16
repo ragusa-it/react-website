@@ -51,27 +51,97 @@ const LazyImage = memo(({ src, alt, className, ...props }) => {
 
 const PortfolioSection = memo(() => (
     <Section id="portfolio">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 text-glow-green animate-slide-up">Meine Arbeiten</h2>
-        <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+            <div className="inline-block border-4 border-green-500 bg-black px-8 py-4 shadow-brutal-lg">
+                <h2 className="text-3xl md:text-5xl font-bold font-mono text-green-500 uppercase tracking-wider">
+                    [ PROJECTS.LOG ]
+                </h2>
+            </div>
+        </div>
+
+        <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto">
             {projectsData.map((p, index) => (
-                <SectionCard key={p.title} className="flex flex-col animate-scale-in" style={{animationDelay: `${index * 0.15}s`}}>
-                    <div className="overflow-hidden rounded-t-lg border-b border-green-500/20 bg-black flex items-center justify-center">
-                        <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Link zu ${p.title}`} className="cursor-none block w-full">
+                <div
+                    key={p.title}
+                    className="border-4 border-green-500 bg-black shadow-brutal-lg animate-scale-in overflow-hidden"
+                    style={{animationDelay: `${index * 0.15}s`}}
+                >
+                    {/* Project Header */}
+                    <div className="bg-green-500 border-b-4 border-green-500 p-3">
+                        <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-black"></div>
+                            <div className="w-3 h-3 bg-black"></div>
+                            <div className="w-3 h-3 bg-black"></div>
+                            <span className="font-mono font-bold text-black text-sm ml-2">
+                                PROJECT_{String(index + 1).padStart(2, '0')}.HTML
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Image Container */}
+                    <div className="border-b-4 border-green-500 bg-black p-4">
+                        <a
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Link zu ${p.title}`}
+                            className="block border-4 border-white shadow-brutal-black-lg overflow-hidden group"
+                        >
                             <LazyImage
                                 src={p.imgSrc}
                                 alt={p.title}
-                                className="w-full h-64 md:h-80 object-contain hover:scale-110 transition-transform duration-500 cursor-none"
+                                className="w-full h-64 md:h-80 object-contain bg-black group-hover:opacity-80 transition-opacity duration-300"
                             />
                         </a>
                     </div>
-                    <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold text-white mb-2 text-glow-green">{p.title}</h3>
-                        <p className="text-gray-300 text-sm mb-4 flex-grow">{p.description}</p>
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                            {p.tags.map(tag => <span key={tag} className="bg-green-900/30 border border-green-500/30 text-green-400 text-xs font-mono px-2 py-1 rounded glow-green">{tag}</span>)}
+
+                    {/* Content */}
+                    <div className="p-6 font-mono">
+                        {/* Title as command */}
+                        <div className="mb-4">
+                            <span className="text-green-500">root@portfolio:~$</span>{' '}
+                            <span className="text-white">cat project_info.txt</span>
+                        </div>
+
+                        <div className="border-l-4 border-green-500 pl-4 space-y-3">
+                            <h3
+                                className="glitch-text text-lg font-bold text-white"
+                                data-text={p.title.toUpperCase()}
+                            >
+                                {p.title.toUpperCase()}
+                            </h3>
+
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                                <span className="text-green-500">//</span> {p.description}
+                            </p>
+
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 pt-2">
+                                {p.tags.map(tag => (
+                                    <span
+                                        key={tag}
+                                        className="bg-green-500 text-black font-bold text-xs px-3 py-1 border-2 border-black"
+                                    >
+                                        #{tag.toUpperCase()}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Link */}
+                            <div className="pt-3">
+                                <a
+                                    href={p.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-black border-2 border-green-500 text-green-500 px-4 py-2 text-xs hover:bg-green-500 hover:text-black transition-all"
+                                >
+                                    [ VIEW_PROJECT ]
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </SectionCard>
+                </div>
             ))}
         </div>
     </Section>

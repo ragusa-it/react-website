@@ -6,10 +6,11 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
 import ImpressumModal from './components/ImpressumModal';
+import MatrixRain from './components/MatrixRain';
+import CRTOverlay from './components/CRTOverlay';
 import { LoaderCircle } from 'lucide-react';
 
 // Lazy-load components
-const NetworkBackground = React.lazy(() => import('./components/NetworkBackground'));
 const AboutSection = React.lazy(() => import('./components/AboutSection'));
 const ServicesSection = React.lazy(() => import('./components/ServicesSection'));
 const PortfolioSection = React.lazy(() => import('./components/PortfolioSection'));
@@ -30,10 +31,18 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="text-gray-300 font-sans leading-relaxed tracking-wide bg-black min-h-screen">
+      <div className="text-gray-300 font-sans leading-relaxed tracking-wide bg-black min-h-screen overflow-x-hidden">
+        {/* Matrix Rain Background */}
+        <MatrixRain />
+
+        {/* CRT Monitor Effects */}
+        <CRTOverlay />
+
+        {/* Fancy Cursor */}
         <FancyCursor />
+
+        {/* Main Content */}
         <Suspense fallback={<LoadingFallback />}>
-          <NetworkBackground />
           <div className="relative z-10">
             <Header />
             <main className="container mx-auto px-6">
@@ -47,6 +56,8 @@ export default function App() {
             <Footer onImpressumClick={openImpressum} />
           </div>
         </Suspense>
+
+        {/* Impressum Modal */}
         {impressumVisible && <ImpressumModal onClose={closeImpressum} />}
       </div>
     </ThemeProvider>
