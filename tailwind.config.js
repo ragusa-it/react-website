@@ -15,9 +15,26 @@ module.exports = {
     "./public/index.html" // Include HTML file for any classes used there
   ],
   theme: {
+    // Override default border-radius to 0 for neo-brutalist aesthetic
+    borderRadius: {
+      'none': '0',
+      DEFAULT: '0',
+    },
     // You can extend the default Tailwind theme here.
-    // For example, you could add custom colors, fonts, or breakpoints.
     extend: {
+      // Neo-brutalist monospace fonts
+      fontFamily: {
+        'mono': ['"Courier New"', 'Courier', 'monospace'],
+        'terminal': ['"Courier New"', 'Courier', 'Monaco', 'monospace'],
+      },
+      // Hard drop shadows for neo-brutalist style
+      boxShadow: {
+        'brutal': '4px 4px 0px 0px rgba(34, 197, 94, 1)',
+        'brutal-lg': '8px 8px 0px 0px rgba(34, 197, 94, 1)',
+        'brutal-black': '4px 4px 0px 0px rgba(0, 0, 0, 1)',
+        'brutal-black-lg': '8px 8px 0px 0px rgba(0, 0, 0, 1)',
+        'brutal-inset': 'inset 4px 4px 0px 0px rgba(34, 197, 94, 0.3)',
+      },
       // Add performance-optimized animations
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -28,6 +45,10 @@ module.exports = {
         'slide-in-left': 'slideInLeft 0.6s ease-out',
         'slide-in-right': 'slideInRight 0.6s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
+        'glitch': 'glitch 0.3s ease-in-out infinite',
+        'flicker': 'flicker 0.15s infinite',
+        'terminal-blink': 'terminalBlink 1s step-end infinite',
+        'scan': 'scan 8s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -40,18 +61,18 @@ module.exports = {
         },
         glow: {
           '0%': {
-            boxShadow: '0 0 5px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.3), 0 0 30px rgba(74, 222, 128, 0.2)',
+            boxShadow: '0 0 5px rgba(34, 197, 94, 0.5), 0 0 20px rgba(34, 197, 94, 0.3), 0 0 30px rgba(34, 197, 94, 0.2)',
           },
           '100%': {
-            boxShadow: '0 0 10px rgba(74, 222, 128, 0.8), 0 0 40px rgba(74, 222, 128, 0.5), 0 0 60px rgba(74, 222, 128, 0.3)',
+            boxShadow: '0 0 10px rgba(34, 197, 94, 0.8), 0 0 40px rgba(34, 197, 94, 0.5), 0 0 60px rgba(34, 197, 94, 0.3)',
           },
         },
         glowPulse: {
           '0%, 100%': {
-            textShadow: '0 0 10px rgba(74, 222, 128, 0.8), 0 0 20px rgba(74, 222, 128, 0.5), 0 0 30px rgba(74, 222, 128, 0.3)',
+            textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.5), 0 0 30px rgba(34, 197, 94, 0.3)',
           },
           '50%': {
-            textShadow: '0 0 20px rgba(74, 222, 128, 1), 0 0 40px rgba(74, 222, 128, 0.8), 0 0 60px rgba(74, 222, 128, 0.5)',
+            textShadow: '0 0 20px rgba(34, 197, 94, 1), 0 0 40px rgba(34, 197, 94, 0.8), 0 0 60px rgba(34, 197, 94, 0.5)',
           },
         },
         float: {
@@ -69,6 +90,44 @@ module.exports = {
         scaleIn: {
           '0%': { transform: 'scale(0.8)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        glitch: {
+          '0%': {
+            transform: 'translate(0)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          },
+          '20%': {
+            transform: 'translate(-2px, 2px)',
+            clipPath: 'polygon(0 20%, 100% 20%, 100% 21%, 0 21%)',
+          },
+          '40%': {
+            transform: 'translate(-2px, -2px)',
+            clipPath: 'polygon(0 60%, 100% 60%, 100% 61%, 0 61%)',
+          },
+          '60%': {
+            transform: 'translate(2px, 2px)',
+            clipPath: 'polygon(0 80%, 100% 80%, 100% 81%, 0 81%)',
+          },
+          '80%': {
+            transform: 'translate(2px, -2px)',
+            clipPath: 'polygon(0 40%, 100% 40%, 100% 41%, 0 41%)',
+          },
+          '100%': {
+            transform: 'translate(0)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          },
+        },
+        flicker: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.96' },
+        },
+        terminalBlink: {
+          '0%, 50%': { opacity: '1' },
+          '51%, 100%': { opacity: '0' },
+        },
+        scan: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
         },
       },
       backdropBlur: {

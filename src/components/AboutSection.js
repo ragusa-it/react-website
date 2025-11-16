@@ -1,27 +1,81 @@
 // src/components/AboutSection.js
 import React, { memo } from 'react';
-import { Section, SectionCard } from './Reusable';
+import { Section } from './Reusable';
 import profilePicture from '../images/profile-picture.webp';
 
 const AboutSection = memo(() => (
     <Section id="about">
-        <SectionCard className="max-w-5xl animate-fade-in">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-                <div className="md:w-1/3 text-center md:text-left animate-scale-in">
-                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-full bg-black border-2 border-green-500 p-2 mb-4 glow-green animate-float">
-                        <img src={profilePicture} alt="Melvin Ragusa" className="rounded-full w-full h-full object-cover" loading="lazy" />
+        <div className="max-w-5xl mx-auto border-4 border-green-500 bg-black shadow-brutal-lg animate-fade-in">
+            {/* Terminal Title Bar */}
+            <div className="border-b-4 border-green-500 p-4 bg-green-500">
+                <h2 className="text-2xl font-mono font-bold text-black uppercase tracking-wider">
+                  [ USER_PROFILE.SYS ]
+                </h2>
+            </div>
+
+            <div className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+                    {/* Profile Image Section */}
+                    <div className="md:w-1/3">
+                        <div className="border-4 border-white bg-black p-2 shadow-brutal-black animate-scale-in">
+                            <img
+                                src={profilePicture}
+                                alt="Melvin Ragusa"
+                                className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        {/* ID Card Style */}
+                        <div className="mt-6 border-2 border-green-500 bg-black p-4 font-mono text-sm">
+                            <div className="text-green-500 space-y-1">
+                                <div>ID: MR-2024-DEV</div>
+                                <div>NAME: Melvin_Ragusa</div>
+                                <div>ROLE: Full-Stack_Dev</div>
+                                <div>LOC: Dortmund_DE</div>
+                                <div>STATUS: <span className="animate-pulse">● ACTIVE</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">Melvin Ragusa</h3>
-                    <p className="text-green-500 font-mono text-glow-green">Webentwickler</p>
-                </div>
-                <div className="md:w-2/3 animate-slide-in-right">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-glow-green">Ihr Webentwickler in Dortmund: Experte für React & Shopify</h2>
-                    <p className="text-gray-300 mb-4">
-                    Mein Name ist Melvin Ragusa. Als freiberuflicher Entwickler aus Dortmund realisiere ich performante Web-Applikationen mit React und umsatzstarke Shopify Stores. Mein Ziel ist es, Ihre Marke perfekt zu präsentieren, Prozesse zu optimieren und Ihren digitalen Erfolg nachhaltig zu steigern.
-                    </p>
+
+                    {/* Terminal Content */}
+                    <div className="md:w-2/3 font-mono">
+                        <div className="space-y-4">
+                            {/* Command Prompt Header */}
+                            <div className="text-green-500 mb-6">
+                                <span className="text-white">root@ragusa:~$</span> cat about.txt
+                            </div>
+
+                            {/* Bio Content in Terminal Style */}
+                            <div className="border-l-4 border-green-500 pl-4 space-y-4 text-gray-300">
+                                <p className="leading-relaxed">
+                                  <span className="text-green-500">//</span> Als freiberuflicher Entwickler aus Dortmund realisiere ich performante Web-Applikationen mit React und umsatzstarke Shopify Stores.
+                                </p>
+
+                                <p className="leading-relaxed">
+                                  <span className="text-green-500">//</span> Mein Ziel: Ihre Marke perfekt präsentieren, Prozesse optimieren und Ihren digitalen Erfolg nachhaltig steigern.
+                                </p>
+
+                                <div className="pt-4 border-t-2 border-green-500/30">
+                                  <div className="text-green-500 mb-2">CORE_COMPETENCIES:</div>
+                                  <div className="grid grid-cols-2 gap-2 text-sm">
+                                    <div>▸ React.js Development</div>
+                                    <div>▸ Shopify E-Commerce</div>
+                                    <div>▸ Web Automation</div>
+                                    <div>▸ Performance Optimization</div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            {/* Blinking Cursor */}
+                            <div className="text-green-500">
+                                <span className="animate-terminal-blink">█</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </SectionCard>
+        </div>
     </Section>
 ));
 
