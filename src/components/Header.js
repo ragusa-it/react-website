@@ -36,11 +36,17 @@ const Header = () => {
         <header className={`sticky top-0 z-50 transition-all duration-200 ${headerClass}`}>
             <div className="container mx-auto flex justify-between items-center p-4 max-w-7xl">
                 {/* Logo/Brand */}
-                <a href="#home" className="flex items-center gap-2 group">
+                <a href="#home" className="overflow-hidden group">
                     <div className="border-2 border-green-500 bg-black p-2 group-hover:border-white transition-all">
-                        <span className="font-mono text-green-500 font-bold text-lg group-hover:text-white transition-colors">
-                            RAGUSA.IT
-                        </span>
+                        <img
+                            src="/logo.svg"
+                            alt="Ragusa IT-Consulting Logo"
+                            className="h-10 w-auto transition-transform duration-300 ease-in-out group-hover:scale-110"
+                            onError={(e) => {
+                                e.currentTarget.src = 'https://placehold.co/160x40/000000/22c55e?text=RAGUSA.IT&font=monospace';
+                                e.currentTarget.onerror = null;
+                            }}
+                        />
                     </div>
                 </a>
 

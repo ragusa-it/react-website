@@ -55,7 +55,8 @@ const TerminalText = memo(({
         clearTimeout(timeoutId);
       }
     };
-  }, [text, speed, delay, onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, speed, delay]);
 
   return (
     <span className={`terminal-text ${className}`}>
