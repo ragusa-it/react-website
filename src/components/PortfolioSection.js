@@ -1,6 +1,6 @@
 // src/components/PortfolioSection.js
 import React, { memo, useState, useRef, useEffect } from "react";
-import { Section, SectionCard } from './Reusable';
+import { Section } from './Reusable';
 import studio31Img from "../images/Studio31.webp";
 
 const projectsData = [
@@ -40,7 +40,9 @@ const LazyImage = memo(({ src, alt, className, ...props }) => {
                     onLoad={() => setIsLoaded(true)}
                     style={{
                         opacity: isLoaded ? 1 : 0,
-                        transition: 'opacity 0.3s ease'
+                        transition: 'opacity 0.3s ease',
+                        margin: '0 auto',
+                        display: 'block'
                     }}
                     {...props}
                 />

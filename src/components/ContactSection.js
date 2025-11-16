@@ -1,7 +1,7 @@
 // src/components/ContactSection.js
 import React, { memo, useCallback, useRef, useState } from "react";
 import { LoaderCircle } from "lucide-react";
-import { Section, SectionCard } from './Reusable';
+import { Section } from './Reusable';
 
 const ContactSection = memo(() => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
