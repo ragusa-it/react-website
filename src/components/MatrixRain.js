@@ -24,11 +24,11 @@ const MatrixRain = memo(() => {
       initColumns();
     };
 
-    // Matrix characters - mix of katakana, latin, numbers, and symbols
-    const chars = 'ｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]()=/\\|!@#$%^&*';
-    const fontSize = 14;
-    const speedMin = 0.3;
-    const speedMax = 1.2;
+    // Matrix characters - using reliable ASCII and hex for better rendering
+    const chars = '0123456789ABCDEF<>{}[]()=/\\|!@#$%^&*+-_.,:;?~`';
+    const fontSize = 16;
+    const speedMin = 0.15;
+    const speedMax = 0.5;
 
     // Initialize columns
     const initColumns = () => {
@@ -50,8 +50,8 @@ const MatrixRain = memo(() => {
         return;
       }
 
-      // Semi-transparent black overlay for fade effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Darker fade effect for more blending
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Set text properties
@@ -63,14 +63,14 @@ const MatrixRain = memo(() => {
         const char = chars[Math.floor(Math.random() * chars.length)];
         const x = i * fontSize;
 
-        // Gradient effect - brighter at the bottom
-        const isHead = Math.random() > 0.975;
+        // Gradient effect - darker and more subtle
+        const isHead = Math.random() > 0.98;
         if (isHead) {
-          // Bright white head
-          ctx.fillStyle = '#ffffff';
+          // Dimmer white head
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
         } else {
-          // Green tail with varying brightness
-          const brightness = Math.random() * 0.5 + 0.5;
+          // Darker green tail with varying brightness
+          const brightness = Math.random() * 0.25 + 0.15;
           ctx.fillStyle = `rgba(34, 197, 94, ${brightness})`;
         }
 
@@ -80,7 +80,7 @@ const MatrixRain = memo(() => {
         column.y += column.speed * fontSize;
 
         // Reset column when it goes off screen
-        if (column.y > canvas.height && Math.random() > 0.975) {
+        if (column.y > canvas.height && Math.random() > 0.98) {
           column.y = 0;
           column.speed = speedMin + Math.random() * (speedMax - speedMin);
         }
@@ -125,6 +125,7 @@ const MatrixRain = memo(() => {
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
       style={{
         backgroundColor: '#000000',
+        opacity: 0.6,
       }}
       aria-hidden="true"
     />

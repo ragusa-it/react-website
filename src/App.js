@@ -20,7 +20,7 @@ const ContactSection = React.lazy(() => import('./components/ContactSection'));
 // Fallback component for Suspense
 const LoadingFallback = () => (
   <div className="flex justify-center items-center h-screen bg-black">
-    <LoaderCircle className="animate-spin text-green-500 glow-green" size={48} />
+    <LoaderCircle className="animate-spin text-green-500" size={48} />
   </div>
 );
 
