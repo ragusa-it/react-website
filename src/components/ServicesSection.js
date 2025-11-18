@@ -33,7 +33,7 @@ const ServicesSection = memo(() => (
         <div className="text-center mb-12">
             <div className="inline-block border-4 border-green-500 bg-black px-8 py-4 shadow-brutal-lg">
                 <h2 className="text-3xl md:text-5xl font-bold font-mono text-green-500 uppercase tracking-wider">
-                    [ SERVICES.EXE ]
+                    [ services.sh ]
                 </h2>
             </div>
         </div>
@@ -45,7 +45,7 @@ const ServicesSection = memo(() => (
                     <div
                         key={service.title}
                         className="brutal-card p-6 animate-scale-in scan-effect"
-                        style={{animationDelay: `${index * 0.1}s`}}
+                        style={{ animationDelay: `${index * 0.1}s` }}
                     >
                         {/* Service Header */}
                         <div className="border-b-2 border-green-500 pb-3 mb-4">
@@ -82,7 +82,7 @@ const ServicesSection = memo(() => (
 
         {/* Footer ASCII */}
         <div className="text-center mt-12 font-mono text-green-500 text-xs opacity-30">
-          ████████████████████████████████████████████████████████
+            ████████████████████████████████████████████████████████
         </div>
     </Section>
 ));

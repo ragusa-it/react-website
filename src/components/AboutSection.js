@@ -9,7 +9,7 @@ const AboutSection = memo(() => (
             {/* Terminal Title Bar */}
             <div className="border-b-4 border-green-500 p-4 bg-green-500">
                 <h2 className="text-2xl font-mono font-bold text-black uppercase tracking-wider">
-                  [ USER_PROFILE.SYS ]
+                    [ .profile ]
                 </h2>
             </div>
 
@@ -49,21 +49,21 @@ const AboutSection = memo(() => (
                             {/* Bio Content in Terminal Style */}
                             <div className="border-l-4 border-green-500 pl-4 space-y-4 text-gray-300">
                                 <p className="leading-relaxed">
-                                  <span className="text-green-500">//</span> Als freiberuflicher Entwickler aus Dortmund realisiere ich performante Web-Applikationen mit React und umsatzstarke Shopify Stores.
+                                    <span className="text-green-500">//</span> Als freiberuflicher Entwickler aus Dortmund realisiere ich performante Web-Applikationen mit React und umsatzstarke Shopify Stores.
                                 </p>
 
                                 <p className="leading-relaxed">
-                                  <span className="text-green-500">//</span> Mein Ziel: Ihre Marke perfekt präsentieren, Prozesse optimieren und Ihren digitalen Erfolg nachhaltig steigern.
+                                    <span className="text-green-500">//</span> Mein Ziel: Ihre Marke perfekt präsentieren, Prozesse optimieren und Ihren digitalen Erfolg nachhaltig steigern.
                                 </p>
 
                                 <div className="pt-4 border-t-2 border-green-500/30">
-                                  <div className="text-green-500 mb-2">CORE_COMPETENCIES:</div>
-                                  <div className="grid grid-cols-2 gap-2 text-sm">
-                                    <div>▸ React.js Development</div>
-                                    <div>▸ Shopify E-Commerce</div>
-                                    <div>▸ Web Automation</div>
-                                    <div>▸ Performance Optimization</div>
-                                  </div>
+                                    <div className="text-green-500 mb-2">CORE_COMPETENCIES:</div>
+                                    <div className="grid grid-cols-2 gap-2 text-sm">
+                                        <div>▸ React.js Development</div>
+                                        <div>▸ Shopify E-Commerce</div>
+                                        <div>▸ Web Automation</div>
+                                        <div>▸ Performance Optimization</div>
+                                    </div>
                                 </div>
                             </div>
 

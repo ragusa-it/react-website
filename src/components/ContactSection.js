@@ -37,7 +37,7 @@ const ContactSection = memo(() => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }, [formData]);
-    
+
     const handleResizeMouseMove = useCallback((e) => { if (isResizing.current) { const newHeight = startHeight.current + e.clientY - startY.current; textareaRef.current.style.height = `${Math.max(120, newHeight)}px`; } }, []);
     const handleResizeMouseUp = useCallback(() => { isResizing.current = false; window.removeEventListener('mousemove', handleResizeMouseMove); window.removeEventListener('mouseup', handleResizeMouseUp); }, [handleResizeMouseMove]);
     const handleResizeMouseDown = useCallback((e) => { isResizing.current = true; startY.current = e.clientY; startHeight.current = textareaRef.current.clientHeight; window.addEventListener('mousemove', handleResizeMouseMove); window.addEventListener('mouseup', handleResizeMouseUp); }, [handleResizeMouseMove, handleResizeMouseUp]);
@@ -67,7 +67,7 @@ const ContactSection = memo(() => {
             <div className="text-center mb-12">
                 <div className="inline-block border-4 border-green-500 bg-black px-8 py-4 shadow-brutal-lg">
                     <h2 className="text-3xl md:text-5xl font-bold font-mono text-green-500 uppercase tracking-wider">
-                        [ CONTACT.SYS ]
+                        [ contact.conf ]
                     </h2>
                 </div>
             </div>
@@ -80,7 +80,7 @@ const ContactSection = memo(() => {
                         <div className="w-3 h-3 bg-black"></div>
                         <div className="w-3 h-3 bg-black"></div>
                         <span className="font-mono font-bold text-black text-sm ml-2">
-                            SEND_MESSAGE.EXE
+                            send_message.sh
                         </span>
                     </div>
                 </div>
@@ -156,7 +156,7 @@ const ContactSection = memo(() => {
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         className="w-full bg-transparent border-none py-3 px-4 text-green-500 focus:outline-none resize-none font-mono"
-                                        style={{height: '120px'}}
+                                        style={{ height: '120px' }}
                                         required
                                         placeholder="ENTER_MESSAGE..."
                                     ></textarea>
